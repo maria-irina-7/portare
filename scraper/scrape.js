@@ -4,8 +4,6 @@ import path from 'path';
 
 import { scrapeDigi } from './digi.js';
 
-
-
 async function runScraper() {
   console.log(`Scrapping subscriptions...`);
 
