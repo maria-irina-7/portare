@@ -24,6 +24,8 @@ export async function scrapeDigi(page) {
 
       let results = {
         internet: 'Nu',
+        internet4GLimit: null,
+        internet5GLimit: null,
         minutesNetwork: 'Nu',
         minutesNational: 'Nu',
         minutesSEE: 'Nu',
@@ -43,18 +45,57 @@ export async function scrapeDigi(page) {
         };
 
         const rules = [
-          { key: 'internet',          matched: textLower.includes('net') && textLower.includes('minut') },
-          { key: 'minutesNetwork',    matched: textLower.includes('minut') && isNetwork(textLower, 'digi') },
-          { key: 'minutesNational',   matched: textLower.includes('minut') && isNational(textLower) },
-          { key: 'minutesSEE',        matched: textLower.includes('minut') && isRoaming(textLower) },
-          { key: 'smsNetwork',        matched: textLower.includes('sms')   && isNetwork(textLower, 'digi') },
-          { key: 'smsNational',       matched: textLower.includes('sms')   && isNational(textLower) },
-          { key: 'smsSEE',            matched: textLower.includes('sms')   && isRoaming(textLower) },
+          { 
+            key: 'internet',
+            matched: textLower.includes('net') && textLower.includes('minut'),    
+            extract: () => textLower 
+          },
+          {
+            key: 'internet4GLimit',
+            matched: textLower.includes('limitare') && textLower.includes('4g'),
+            extract: () => textLower.match(/acces la \d+ gb/)?.[0]
+          },
+                    {
+            key: 'internet5GLimit',
+            matched: textLower.includes('limitare') && textLower.includes('5g'),
+            extract: () => textLower.match(/acces la \d+ gb/)?.[0]
+          },
+          { 
+            key: 'minutesNetwork',
+            matched: textLower.includes('minut') && isNetwork(textLower, 'digi'), 
+            extract: () => textLower 
+          },
+          { 
+            key: 'minutesNational',
+            matched: textLower.includes('minut') && isNational(textLower),       
+            extract: () => textLower 
+          },
+          { 
+            key: 'minutesSEE',
+            matched: textLower.includes('minut') && isRoaming(textLower),
+            extract: () => textLower 
+          },
+          { 
+            key: 'smsNetwork',
+            matched: textLower.includes('sms') && isNetwork(textLower, 'digi'), 
+            extract: () =>  textLower 
+          },
+          { 
+            key: 'smsNational',
+            matched: textLower.includes('sms') && isNational(textLower),
+            extract: () => textLower 
+          },
+          { 
+            key: 'smsSEE',
+            matched: textLower.includes('sms') && isRoaming(textLower),
+            extract: () => textLower
+          },
         ];
 
         for (const rule of rules) {
           if (rule.matched) {
-            const extracted = extractValue(textLower);
+            const rawValue = rule.extract(); 
+            const extracted = extractValue(rawValue);
             if (extracted) {
               results[rule.key] = extracted;
             }
