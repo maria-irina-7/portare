@@ -19,7 +19,7 @@ async function runScraper() {
 
   const page = await context.newPage();
   
-  // Block media resources for fastes timing
+  // Block media resources for a faster response
   await page.route('**/*.{png,jpg,jpeg,gif,webp,svg,woff,woff2}', route => route.abort());
 
   try {
