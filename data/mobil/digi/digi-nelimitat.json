@@ -1,0 +1,74 @@
+{
+  "id": "digi-nelimitat",
+  "provider": "Digi",
+  "numePlan": "Nelimitat",
+  "tip": "abonament",
+
+  "preturi": {
+    "numarNou": {
+      "standard": 5.0,
+      "reducere": null,
+      "perioadaReducereLuni": 0
+    },
+    "laPortare": {
+      "standard": 5.0,
+      "reducere": null,
+      "perioadaReducereLuni": 0
+    },
+    "deLaCartela": {
+      "standard": 5.0,
+      "reducere": null,
+      "perioadaReducereLuni": 0
+    },
+    "moneda": "EUR",
+    "includeTVA": true
+  },
+
+  "contract": {
+    "durataLuni": [12, 24],
+    "faraPerioadaMinima": false
+  },
+
+  "internetNational": {
+    "volum": "Nelimitat",
+    "este5G": true,
+    "politicaUtilizareRezonabila": "limitare de viteză după 200GB",
+    "vitezeMaxime": {
+      "4G (LTE)": {
+        "download": 150,
+        "upload": 50,
+        "unitate": "Mbps"
+      },
+      "5G": {
+        "download": 600,
+        "upload": 50,
+        "unitate": "Mbps"
+      },
+      "dupaLimita": {
+        "download": 1,
+        "upload": 0.5,
+        "unitate": "Mbps"
+      }
+    }
+  },
+
+  "roamingSEE": {
+    "esteInclus": true,
+    "metodaCalcul": "FUP ANCOM dinamic"
+  },
+
+  "minuteSiSms": {
+    "nationale": "Nelimitat",
+    "retea": "Nelimitat",
+    "internationale": {
+      "cantitate": "Nelimitat",
+      "destinatii": "Zonele mobile și fixe UE"
+    },
+    "comentariu": null
+  },
+
+  "extraoptiuni": null,
+
+  "linkSursa": "https://www.digi.ro/servicii/telefonie-mobila",
+  "ultimaActualizare": "2026-06-20"
+}
