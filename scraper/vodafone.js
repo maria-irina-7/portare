@@ -18,45 +18,88 @@ export async function scrapeVodafone(page) {
 
   await page.waitForTimeout(2000);
 
-  await page.locator('div[aria-roledescription="carousel]"'); //
+  // Wait for carousel layout if it exists
+  await page
+    .locator('div[aria-roledescription="carousel"]')
+    .waitFor({ state: "attached" })
+    .catch(() => {});
 
   const itemsLocator = page.locator(
     '.ServiceCardRoot[data-testid="CONFIG_PLAN_CARD"]',
   );
   const items = await itemsLocator.all();
 
-  const vodafoneSubscription = await Promise.all(
-    items.map(async (item) => {
-      const nameRaw = await item
-        .locator("div > div > h3")
-        .textContent()
-        .catch(() => "");
-      const priceRaw = await item
-        .locator(
-          'div[data-testid="CARD_PRICE_SECTION"] > div > span:has-text("€")',
-        )
-        .textContent()
-        .catch(() => "");
+  const vodafoneSubscription = [];
 
-      // await page
-      //   .locator("button", { hasText: "Vezi toate beneficiile" })
-      //   .click();
+  // Looping sequentially
+  for (const item of items) {
+    const nameRaw = await item
+      .locator("div > div > h3")
+      .textContent()
+      .catch(() => "");
 
-      // const detailsRaw = await page
-      //   .locator("div[role=dialog] ul > li")
-      //   .allTextContents();
+    const priceRaw = await item
+      .locator(
+        'div[data-testid="CARD_PRICE_SECTION"] > div > span:has-text("€")',
+      )
+      .textContent()
+      .catch(() => "");
 
-      // const details = detailsRaw
-      //   .map((text) => text.trim())
-      //   .filter((text) => text.length > 0);
+    try {
+      // Find the button specifically inside this current plan card
+      const detailsButton = item.locator("button", {
+        hasText: "Vezi toate beneficiile",
+      });
 
-      return {
+      if ((await detailsButton.count()) > 0) {
+        await detailsButton.click();
+
+        // Target the plan modal while ignoring the hidden OneTrust cookie dialog
+        const dialog = page.locator(
+          'div[role="dialog"]:not([aria-label*="Cookie"])',
+        );
+        await dialog.waitFor({ state: "visible", timeout: 5000 });
+
+        const detailsRaw = await dialog.locator("ul > li").allTextContents();
+
+        const details = detailsRaw
+          .map((text) => text.trim())
+          .filter((text) => text.length > 0);
+
+        // Close the modal using Escape so the next loop cycle can click its button
+        await page.keyboard.press("Escape");
+        await page.waitForTimeout(500); // Give the closing animation a moment
+
+        vodafoneSubscription.push({
+          numePlan: nameRaw ? nameRaw.trim() : "",
+          price: priceRaw ? priceRaw.trim() : "",
+          beneficii: details,
+        });
+      } else {
+        vodafoneSubscription.push({
+          numePlan: nameRaw ? nameRaw.trim() : "",
+          price: priceRaw ? priceRaw.trim() : "",
+          beneficii: [],
+        });
+      }
+    } catch (err) {
+      console.error(
+        `Could not read modal details for ${nameRaw}:`,
+        err.message,
+      );
+
+      // Fallback so we don't drop the plan's basic data if the modal errors out
+      vodafoneSubscription.push({
         numePlan: nameRaw ? nameRaw.trim() : "",
         price: priceRaw ? priceRaw.trim() : "",
-        ...details,
-      };
-    }),
-  );
+        beneficii: [],
+      });
+
+      // Clear any stuck modals
+      await page.keyboard.press("Escape").catch(() => {});
+    }
+  }
 
   console.log(vodafoneSubscription);
+  return vodafoneSubscription;
 }
