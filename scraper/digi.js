@@ -34,6 +34,15 @@ export async function scrapeDigi(page) {
         internet: "Nu",
         internet4GLimit: null,
         internet5GLimit: null,
+
+        normal4GUpSpeed: null,
+        normal4GDownSpeed: null,
+        limit4GUpSpeed: null,
+        limit4GDownSpeed: null,
+
+        normal5GUpSpeed: null,
+        normal5GDownSpeed: null,
+
         minutesNetwork: "Nu",
         minutesNational: "Nu",
         minutesSEE: "Nu",
