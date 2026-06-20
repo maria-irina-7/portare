@@ -1,0 +1,12 @@
+.subscription {
+  display: subgrid;
+  margin: 1rem;
+  padding: 1rem;
+  list-style: none;
+  border: 1px solid black;
+}
+
+.subscription__data {
+  display: flex;
+  justify-content: space-between;
+}
