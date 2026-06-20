@@ -1,0 +1,112 @@
+{
+  "id": "vdf-red-unlimited-disney",
+  "provider": "Vodafone",
+  "numePlan": "RED Unlimited cu Disney+",
+  "tip": "abonament",
+
+  "preturi": {
+    "numarNou": null,
+    "laPortare": {
+      "standard": 10.9,
+      "reducere": 8.9,
+      "perioadaReducereLuni": 6
+    },
+    "deLaCartela": null,
+    "moneda": "EUR",
+    "includeTVA": true
+  },
+
+  "contract": {
+    "durataLuni": 24,
+    "faraPerioadaMinima": false
+  },
+
+  "internetNational": {
+    "volum": "Nelimitat",
+    "este5G": true,
+    "politicaUtilizareRezonabila": "Fără limită de viteză sau prag de GB în țară",
+    "vitezeMaxime": {
+      "4G (LTE)": {
+        "download": 225,
+        "upload": 50,
+        "unitate": "Mbps"
+      },
+      "5G": {
+        "download": 500,
+        "upload": 50,
+        "unitate": "Mbps"
+      }
+    }
+  },
+
+  "roamingSEE": {
+    "esteInclus": true,
+    "metodaCalcul": "FUP ANCOM dinamic"
+  },
+
+  "minuteSiSms": {
+    "nationale": "Nelimitat",
+    "retea": "Nelimitat",
+    "internationale": {
+      "cantitate": 200,
+      "destinatii": "Zonele mobile și fixe UE"
+    }
+  },
+
+  "extraoptiuni": [
+    {
+      "nume": "Secure Net",
+      "detalii": "Protecție antivirus și phishing la nivel de rețea mobilă.",
+      "perioadaGratuitaLuni": 2,
+      "pret": 0.99,
+      "moneda": "EUR",
+      "perioadaMinimaContractualaLuni": 0
+    },
+    {
+      "nume": "HBO Max Standard",
+      "detalii": "Platformă de streaming video. Contul trebuie activat obligatoriu în maximum 30 de zile de la primirea SMS-ului de confirmare.",
+      "perioadaGratuitaLuni": 0,
+      "pret": 5.99,
+      "moneda": "EUR",
+      "perioadaMinimaContractualaLuni": 0
+    },
+    {
+      "nume": "Opțiunea OneNumber",
+      "detalii": "Permite utilizarea aceluiași număr de telefon și a aceluiași abonament pe un ceas inteligent de tip Smartwatch cu eSIM.",
+      "perioadaGratuitaLuni": 2,
+      "pret": 2.0,
+      "moneda": "EUR",
+      "perioadaMinimaContractualaLuni": 0
+    },
+    {
+      "nume": "Disney+",
+      "detalii": "Platformă de streaming video. Atenție: discountul de 6 luni se acordă doar la activarea pe o perioadă contractuală obligatorie.",
+      "perioadaGratuitaLuni": 24,
+      "pret": 6.99,
+      "moneda": "EUR",
+      "perioadaMinimaContractualaLuni": 12
+    },
+    {
+      "nume": "Vodafone TV+",
+      "detalii": "Aplicație de streaming pentru canale TV live. Disponibilă doar pentru abonamentele selectate (Simplu sau RED Together). Necesită activare în 30 de zile.",
+      "perioadaGratuitaLuni": 0,
+      "pret": 3.99,
+      "moneda": "EUR",
+      "perioadaMinimaContractualaLuni": 0
+    },
+    {
+      "nume": "Asigurare Ecran",
+      "detalii": "Valabilă doar la achiziția unui telefon nou în rate sau la preț întreg. Costul variază ulterior între 2.50€ și 4.50€ în funcție de model și brand.",
+      "perioadaGratuitaLuni": 2,
+      "pret": {
+        "ptTelSub850Euro": 2.5,
+        "ptTelAppleSiSub2600Euro": 4.5
+      },
+      "moneda": "EUR",
+      "perioadaMinimaContractualaLuni": 0
+    }
+  ],
+
+  "linkSursa": "https://www.vodafone.ro/abonamente",
+  "ultimaActualizare": "2026-06-20"
+}
