@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 
 import { scrapeDigi } from "./digi.js";
+import { scrapeVodafone } from "./vodafone.js";
 
 async function runScraper() {
   console.log(`Scrapping subscriptions...`);
@@ -27,6 +28,12 @@ async function runScraper() {
     await scrapeDigi(page);
   } catch (error) {
     console.error("Error when scraping Digi:", error.message);
+  }
+
+  try {
+    await scrapeVodafone(page);
+  } catch (error) {
+    console.error("Error when scraping Vodafone:", error.message);
   }
 
   await browser.close();
