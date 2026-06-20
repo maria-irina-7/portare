@@ -18,13 +18,24 @@ const Subscription = ({ subscription }) => {
           <span>{subscription.numePlan}</span>
         </li>
       )}
+      <br></br>
 
-      {subscription.preturi?.numarNou && (
-        <li className="subscription__data privacy-spaced">
-          <span>Pret:</span>
-          <span>
-            Numar nou - {subscription.preturi.numarNou.standard}{" "}
-            {subscription.preturi.moneda}
+      {subscription.preturi && (
+        <li className="subscription__data">
+          <span className="subscription__data__type">
+            {subscription.preturi.numarNou && (
+              <span className="subscription__data__type__mod selected">
+                Numar Nou
+              </span>
+            )}
+            {subscription.preturi.laPortare && (
+              <span className="subscription__data__type__mod">Portare</span>
+            )}
+            {subscription.preturi.deLaCartela && (
+              <span className="subscription__data__type__mod">
+                Migrare de la cartela
+              </span>
+            )}
           </span>
         </li>
       )}
