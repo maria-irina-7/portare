@@ -17,7 +17,7 @@
   },
 
   "contract": {
-    "durataLuni": 24,
+    "durataLuni": [24],
     "faraPerioadaMinima": false
   },
 
