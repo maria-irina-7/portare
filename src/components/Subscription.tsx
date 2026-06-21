@@ -1,7 +1,22 @@
 import React from "react";
 import "../styles/Subscription.css";
+import type { JSONType } from "astro/zod";
 
-const Subscription = ({ subscription }) => {
+interface SubscriptionData {
+  provider?: string;
+  numePlan?: string;
+  preturi?: {
+    numarNou?: boolean;
+    laPortare?: boolean;
+    deLaCartela?: boolean;
+  };
+}
+
+interface SubscriptionProp {
+  subscription: SubscriptionData;
+}
+
+const Subscription = ({ subscription }: SubscriptionProp) => {
   if (!subscription) return null;
 
   return (
