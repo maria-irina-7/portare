@@ -33,14 +33,18 @@ const subscriptions = Object.values(jsonModules).map((mod: any) => mod.default);
   </head>
   <body class="App">
     <Navbar items={["Telefonie mobila"]} />
-    <aside></aside>
     <main>
-      <div class="subscription-grid">
-        {
-          subscriptions.map((subscription) => (
-            <Subscription subscription={subscription} />
-          ))
-        }
+      <aside class="sidebar"></aside>
+      <div class="conent">
+        <div class="select">Sunt pe ... si vreu sa ma portez</div>
+        <div class="subscription-grid">
+          {
+            subscriptions.map((subscription) => (
+              <Subscription subscription={subscription} />
+            ))
+          }
+        </div>
+        <div class="price">Total de plata pe 2 ani:</div>
       </div>
     </main>
   </body>
