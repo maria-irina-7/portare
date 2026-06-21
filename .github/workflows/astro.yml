@@ -33,6 +33,8 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+      - name: Install Playwright Browsers and System Dependencies
+        run: npx playwright install --with-deps
       - name: Checkout
         uses: actions/checkout@v4
       - name: Detect package manager
