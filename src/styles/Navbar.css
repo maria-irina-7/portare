@@ -1,0 +1,22 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: x-large;
+  border-radius: 50px;
+  border: 1px black solid;
+  padding: 0.25em 0.25em 0.25em 1em;
+}
+
+.nav__menu {
+  list-style: none;
+  padding: 0;
+}
+
+.nav__menu_item.active {
+  color: white;
+  background-color: black;
+  padding: 0.2em 1em;
+  border-radius: 50px;
+}
