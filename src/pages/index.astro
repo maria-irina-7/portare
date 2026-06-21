@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import "../styles/SubscriptionGrid.css";
 import Subscription from "../components/Subscription";
+import Navbar from "../components/Navbar";
 
 const jsonModules = import.meta.glob("../../data/mobil/**/*.json", {
   eager: true,
@@ -31,13 +32,16 @@ const subscriptions = Object.values(jsonModules).map((mod: any) => mod.default);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
-    <h1>Compară prețurile abonamentelor mobile</h1>
-    <div class="subscription-grid">
-      {
-        subscriptions.map((subscription) => (
-          <Subscription subscription={subscription} />
-        ))
-      }
-    </div>
+    <Navbar items={["Telfonie mobila"]} />
+    <aside></aside>
+    <main>
+      <div class="subscription-grid">
+        {
+          subscriptions.map((subscription) => (
+            <Subscription subscription={subscription} />
+          ))
+        }
+      </div>
+    </main>
   </body>
 </html>
