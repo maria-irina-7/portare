@@ -15,7 +15,6 @@ interface SubscriptionData {
 interface SubscriptionProp {
   subscription: SubscriptionData;
 }
-
 const Subscription = ({ subscription }: SubscriptionProp) => {
   if (!subscription) return null;
 
@@ -37,7 +36,7 @@ const Subscription = ({ subscription }: SubscriptionProp) => {
 
       {subscription.preturi && (
         <li className="subscription__data">
-          <span className="subscription__data__type">
+          {/* <span className="subscription__data__type">
             {subscription.preturi.numarNou && (
               <span className="subscription__data__type__mod selected">
                 Numar Nou
@@ -51,7 +50,7 @@ const Subscription = ({ subscription }: SubscriptionProp) => {
                 Migrare de la cartela
               </span>
             )}
-          </span>
+          </span> */}
         </li>
       )}
     </ul>
