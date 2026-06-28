@@ -8,7 +8,7 @@ interface BannerProps {
 }
 
 const Sidebar = ({ children, className: _className }: BannerProps) => {
-  return <div className={_className}>{children}</div>;
+  return <div className={`banner ${_className}`}>{children}</div>;
 };
 
 export default Sidebar;
