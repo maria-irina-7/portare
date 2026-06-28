@@ -1,9 +1,9 @@
 ---
 import "../styles/global.css";
-import "../styles/SubscriptionGrid.css";
 import Subscription from "../components/Subscription";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import Grid from "../components/Grid";
 
 const jsonModules = import.meta.glob("../../data/mobil/**/*.json", {
   eager: true,
@@ -38,13 +38,13 @@ const subscriptions = Object.values(jsonModules).map((mod: any) => mod.default);
       <Sidebar />
       <div class="content">
         <div class="select">Sunt pe si vreu sa ma portez</div>
-        <div class="subscription-grid">
+        <Grid>
           {
             subscriptions.map((subscription) => (
               <Subscription subscription={subscription} />
             ))
           }
-        </div>
+        </Grid>
         <div class="price">Total de plata pe 2 ani:</div>
       </div>
     </main>
