@@ -4,6 +4,7 @@ import Subscription from "../components/Subscription";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import Grid from "../components/Grid";
+import Banner from "../components/Banner";
 
 const jsonModules = import.meta.glob("../../data/mobil/**/*.json", {
   eager: true,
@@ -28,16 +29,14 @@ const subscriptions = Object.values(jsonModules).map((mod: any) => mod.default);
     <meta property="og:url" content="/this-page.html" />
     <meta property="og:site_name" content="Your Site Name" />
 
-    <link href="style.css" rel="stylesheet" />
-
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body class="App">
     <Navbar items={["Telefonie mobila"]} />
     <main>
-      <Sidebar />
+      <Sidebar client:load />
       <div class="content">
-        <div class="select">Sunt pe si vreu sa ma portez</div>
+        <Banner className="banner--select">Sunt pe si vreu sa ma portez</Banner>
         <Grid>
           {
             subscriptions.map((subscription) => (
@@ -45,7 +44,7 @@ const subscriptions = Object.values(jsonModules).map((mod: any) => mod.default);
             ))
           }
         </Grid>
-        <div class="price">Total de plata pe 2 ani:</div>
+        <Banner className="banner--price">Total de plata pe 2 ani:</Banner>
       </div>
     </main>
   </body>
