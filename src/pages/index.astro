@@ -3,6 +3,7 @@ import "../styles/global.css";
 import "../styles/SubscriptionGrid.css";
 import Subscription from "../components/Subscription";
 import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
 
 const jsonModules = import.meta.glob("../../data/mobil/**/*.json", {
   eager: true,
@@ -34,9 +35,9 @@ const subscriptions = Object.values(jsonModules).map((mod: any) => mod.default);
   <body class="App">
     <Navbar items={["Telefonie mobila"]} />
     <main>
-      <aside class="sidebar"></aside>
-      <div class="conent">
-        <div class="select">Sunt pe ... si vreu sa ma portez</div>
+      <Sidebar />
+      <div class="content">
+        <div class="select">Sunt pe si vreu sa ma portez</div>
         <div class="subscription-grid">
           {
             subscriptions.map((subscription) => (
