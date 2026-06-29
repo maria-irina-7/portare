@@ -61,20 +61,27 @@ const Subscription = ({ subscription }: SubscriptionProp) => {
       <hr className="subscription__hr"></hr>
 
       {subscription.internetNational && (
+        <li className="subscription__data">
+          <span>
+            <strong>Intenet:</strong>
+          </span>
+          <span>
+            <strong>{subscription.internetNational.volum}</strong>
+            {subscription.internetNational.politicaUtilizareRezonabila && (
+              <>
+                {"* ("}
+                {subscription.internetNational.politicaUtilizareRezonabila}
+                {")"}
+              </>
+            )}
+          </span>
+        </li>
+      )}
+
+      <hr className="subscription__hr"></hr>
+
+      {subscription.internetNational && (
         <>
-          <li className="subscription__data">
-            <span>Intenet:</span>
-            <span>
-              {subscription.internetNational.volum}
-              {subscription.internetNational.politicaUtilizareRezonabila && (
-                <>
-                  {"* ("}
-                  {subscription.internetNational.politicaUtilizareRezonabila}
-                  {")"}
-                </>
-              )}
-            </span>
-          </li>
           <li className="subscription__data">
             <span>Viteze 5G:</span>
             <span>
@@ -97,8 +104,6 @@ const Subscription = ({ subscription }: SubscriptionProp) => {
           </li>
         </>
       )}
-
-      <br></br>
     </ul>
   );
 };
