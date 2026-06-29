@@ -28,16 +28,6 @@
   justify-content: space-between;
 }
 
-.subscription__data__type {
-  display: inline-flex;
-}
-
-.subscription__data__type__mod {
-  padding: 0.1rem 1rem 0.1rem 1rem;
-  border: 1px solid black;
-}
-
-.subscription__data__type__mod.selected {
-  background-color: black;
-  color: white;
+.subscription__data > span:nth-child(2) {
+  text-align: right;
 }
