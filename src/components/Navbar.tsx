@@ -14,7 +14,7 @@ const Navbar = ({ items }: NavbarProps) => {
         {items?.map((item, index) => (
           <li key={index} className="nav__menu_item active">
             <MobileIcon />
-            {item}
+            <span>{item}</span>
           </li>
         ))}
       </ul>
