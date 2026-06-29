@@ -16,10 +16,20 @@ interface SubscriptionData {
     este5G?: boolean;
     politicaUtilizareRezonabila?: string;
     vitezeMaxime?: {
+      i4G?: {
+        download?: number;
+        upload?: number;
+        unitate?: string;
+      };
+      i5G?: {
+        download?: number;
+        upload?: number;
+        unitate?: string;
+      };
       dupaLimita?: {
-        download?: 1;
-        upload?: 0.5;
-        unitate?: "Mbps";
+        download?: number;
+        upload?: number;
+        unitate?: string;
       };
     };
   };
@@ -48,34 +58,47 @@ const Subscription = ({ subscription }: SubscriptionProp) => {
         </li>
       )}
 
+      <hr className="subscription__hr"></hr>
+
       {subscription.internetNational && (
-        <li className="subscription__data">
-          <span>Intenet:</span>
-          <span>{subscription.internetNational.volum}</span>
-        </li>
+        <>
+          <li className="subscription__data">
+            <span>Intenet:</span>
+            <span>
+              {subscription.internetNational.volum}
+              {subscription.internetNational.politicaUtilizareRezonabila && (
+                <>
+                  {"* ("}
+                  {subscription.internetNational.politicaUtilizareRezonabila}
+                  {")"}
+                </>
+              )}
+            </span>
+          </li>
+          <li className="subscription__data">
+            <span>Viteze 5G:</span>
+            <span>
+              {subscription.internetNational.vitezeMaxime?.i5G?.download}
+              {subscription.internetNational.vitezeMaxime?.i5G?.unitate} down
+              <br></br>
+              {subscription.internetNational.vitezeMaxime?.i5G?.upload}
+              {subscription.internetNational.vitezeMaxime?.i5G?.unitate} up
+            </span>
+          </li>
+          <li className="subscription__data">
+            <span>Viteze 4G:</span>
+            <span>
+              {subscription.internetNational.vitezeMaxime?.i4G?.download}
+              {subscription.internetNational.vitezeMaxime?.i4G?.unitate} down
+              <br></br>
+              {subscription.internetNational.vitezeMaxime?.i4G?.upload}
+              {subscription.internetNational.vitezeMaxime?.i4G?.unitate} up
+            </span>
+          </li>
+        </>
       )}
 
       <br></br>
-
-      {subscription.preturi && (
-        <li className="subscription__data">
-          {/* <span className="subscription__data__type">
-            {subscription.preturi.numarNou && (
-              <span className="subscription__data__type__mod selected">
-                Numar Nou
-              </span>
-            )}
-            {subscription.preturi.laPortare && (
-              <span className="subscription__data__type__mod">Portare</span>
-            )}
-            {subscription.preturi.deLaCartela && (
-              <span className="subscription__data__type__mod">
-                Migrare de la cartela
-              </span>
-            )}
-          </span> */}
-        </li>
-      )}
     </ul>
   );
 };
