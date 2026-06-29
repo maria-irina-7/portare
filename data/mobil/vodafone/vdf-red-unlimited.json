@@ -32,7 +32,7 @@
   "internetNational": {
     "volum": "Nelimitat",
     "este5G": true,
-    "politicaUtilizareRezonabila": "Fără limită de viteză sau prag de GB în țară",
+    "politicaUtilizareRezonabila": null,
     "vitezeMaxime": {
       "i4G": {
         "download": 225,
