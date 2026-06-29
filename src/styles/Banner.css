@@ -1,3 +1,14 @@
 .banner {
   padding: 1rem;
+
+  background: linear-gradient(rgb(81, 81, 81, 0.1), rgba(0, 0, 0, 0.1));
+  backdrop-filter: blur(20px);
+}
+
+.banner--price {
+  border-radius: 0px 28px 0px 0px;
+}
+
+.banner--select {
+  border-radius: 0px 28px 28px 0px;
 }
