@@ -34,12 +34,12 @@
     "este5G": true,
     "politicaUtilizareRezonabila": "limitare de viteză după 200GB",
     "vitezeMaxime": {
-      "4G (LTE)": {
+      "i4G": {
         "download": 150,
         "upload": 50,
         "unitate": "Mbps"
       },
-      "5G": {
+      "i5G": {
         "download": 600,
         "upload": 50,
         "unitate": "Mbps"

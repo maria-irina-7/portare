@@ -34,12 +34,12 @@
     "este5G": true,
     "politicaUtilizareRezonabila": "Fără limită de viteză sau prag de GB în țară",
     "vitezeMaxime": {
-      "4G (LTE)": {
+      "i4G": {
         "download": 225,
         "upload": 50,
         "unitate": "Mbps"
       },
-      "5G": {
+      "i5G": {
         "download": 500,
         "upload": 50,
         "unitate": "Mbps"
