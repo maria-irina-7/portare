@@ -1,6 +1,21 @@
 .subscriptions-grid {
+  flex-grow: 1;
+
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(400px, 1fr);
+
+  width: 100%;
+  max-width: 100%;
+
   column-gap: 0.5rem;
   row-gap: 0.5rem;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-behavior: smooth;
+
+  -webkit-overflow-scrolling: touch;
 }
