@@ -10,6 +10,19 @@ interface SubscriptionData {
     laPortare?: boolean;
     deLaCartela?: boolean;
   };
+
+  internetNational?: {
+    volum?: string | number;
+    este5G?: boolean;
+    politicaUtilizareRezonabila?: string;
+    vitezeMaxime?: {
+      dupaLimita?: {
+        download?: 1;
+        upload?: 0.5;
+        unitate?: "Mbps";
+      };
+    };
+  };
 }
 
 interface SubscriptionProp {
@@ -20,11 +33,13 @@ const Subscription = ({ subscription }: SubscriptionProp) => {
 
   return (
     <ul className="subscription">
-      {subscription.provider && (
-        <li className="subscription__data">
-          <span>Provider:</span> <span>{subscription.provider}</span>
-        </li>
-      )}
+      <img
+        className="subscription__logo"
+        src={`./public/portare/assets/companies/${subscription.provider}.png`}
+        alt={`${subscription.provider} logo`}
+      ></img>
+
+      <hr className="subscription__hr"></hr>
 
       {subscription.numePlan && (
         <li className="subscription__data">
@@ -32,6 +47,14 @@ const Subscription = ({ subscription }: SubscriptionProp) => {
           <span>{subscription.numePlan}</span>
         </li>
       )}
+
+      {subscription.internetNational && (
+        <li className="subscription__data">
+          <span>Intenet:</span>
+          <span>{subscription.internetNational.volum}</span>
+        </li>
+      )}
+
       <br></br>
 
       {subscription.preturi && (

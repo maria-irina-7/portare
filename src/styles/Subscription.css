@@ -2,7 +2,25 @@
   display: subgrid;
   padding: 1rem;
   list-style: none;
-  border: 1px solid black;
+  background: #f4f4f4;
+
+  border: none;
+  mask:
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top
+      left / 12px 50% repeat-x,
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg)
+      bottom left / 12px 50% repeat-x;
+}
+
+.subscription__logo {
+  max-height: 2rem;
+  filter: grayscale(100%);
+}
+
+.subscription__hr {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px dashed black;
 }
 
 .subscription__data {
