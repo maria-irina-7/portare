@@ -1,5 +1,5 @@
 .subscriptions-grid {
-  flex-grow: 1;
+  flex: 1;
   padding-left: 0.5rem;
 
   display: grid;
