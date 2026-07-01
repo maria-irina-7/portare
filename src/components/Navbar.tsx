@@ -12,11 +12,15 @@ const Navbar = ({ items }: NavbarProps) => {
       <span className="nav__title">Compară prețurile abonamentelor de:</span>
       <ul className="nav__menu">
         {items?.map((item, index) => (
-          <li key={index} className="nav__menu_item active">
+          <a href="/portare" key={index} className="nav__menu_item active">
             <MobileIcon />
             <span>{item}</span>
-          </li>
+          </a>
         ))}
+        <a href="/portare/blog" className="nav__menu_item">
+          <MobileIcon />
+          <span>Blog</span>
+        </a>
       </ul>
     </div>
   );
