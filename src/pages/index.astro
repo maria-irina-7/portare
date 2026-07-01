@@ -1,10 +1,10 @@
 ---
-import "../styles/global.css";
 import Subscription from "../components/Subscription";
-import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import Grid from "../components/Grid";
 import Banner from "../components/Banner";
+
+import Layout from "../layouts/Layout.astro";
 
 const jsonModules = import.meta.glob("../../data/mobil/**/*.json", {
   eager: true,
@@ -13,39 +13,17 @@ const jsonModules = import.meta.glob("../../data/mobil/**/*.json", {
 const subscriptions = Object.values(jsonModules).map((mod: any) => mod.default);
 ---
 
-<html lang="en">
-  <head>
-    <title>Page Title</title>
-
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <meta name="author" content="Your name" />
-    <meta name="description" content="Brief description" />
-
-    <meta property="og:title" content="Your Page Title" />
-    <meta property="og:description" content="Brief description" />
-    <meta property="og:image" content="/some-image.png" />
-    <meta property="og:url" content="/this-page.html" />
-    <meta property="og:site_name" content="Your Site Name" />
-
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  </head>
-  <body class="App">
-    <Navbar items={["Telefonie mobila"]} />
-    <main>
-      <Sidebar client:load />
-      <div class="content">
-        <Banner className="banner--select">Sunt pe si vreu sa ma portez</Banner>
-        <Grid>
-          {
-            subscriptions.map((subscription) => (
-              <Subscription subscription={subscription} />
-            ))
-          }
-        </Grid>
-        <Banner className="banner--price">Total de plata pe 2 ani:</Banner>
-      </div>
-    </main>
-  </body>
-</html>
+<Layout>
+  <Sidebar client:load />
+  <div class="content">
+    <Banner className="banner--select">Sunt pe si vreu sa ma portez</Banner>
+    <Grid>
+      {
+        subscriptions.map((subscription) => (
+          <Subscription subscription={subscription} />
+        ))
+      }
+    </Grid>
+    <Banner className="banner--price">Total de plata pe 2 ani:</Banner>
+  </div>
+</Layout>
