@@ -7,12 +7,7 @@ import mdx from "@astrojs/mdx";
 
 import cloudflare from "@astrojs/cloudflare";
 
-// https://astro.build/config
 export default defineConfig({
+  output: "static",
   integrations: [react(), mdx()],
-
-  // base: "/portare",
-  // site: "https://maria-irina-7.github.io",
-
-  adapter: cloudflare(),
 });
