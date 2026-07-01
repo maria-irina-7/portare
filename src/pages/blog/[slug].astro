@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+// In src/pages/blog/[slug].astro
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  return posts.map((post) => {
+    // Force the slug to be exactly the ID
+    const slug = post.id.replace(/\.mdx?$/, "");
+
+    console.log("Generating path for:", slug);
+
+    return {
+      params: { slug: slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={post.data.title}>
+  <h1>{post.data.title}</h1>
+  <article>
+    <Content />
+  </article>
+</Layout>
