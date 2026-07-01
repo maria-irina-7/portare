@@ -8,11 +8,9 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "scrape": "node scraper/scrape.js",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "generate-types": "wrangler types"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.1.0",
