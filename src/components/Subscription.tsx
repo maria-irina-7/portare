@@ -46,7 +46,7 @@ const Subscription = ({ subscription }: SubscriptionProp) => {
       <img
         className="subscription__logo"
         src={`./public/portare/assets/companies/${subscription.provider}.png`}
-        alt={`${subscription.provider} logo`}
+        alt={`${subscription.provider}`}
       ></img>
 
       <hr className="subscription__hr"></hr>
