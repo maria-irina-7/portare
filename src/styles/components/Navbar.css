@@ -14,7 +14,14 @@
   backdrop-filter: blur(20px);
 }
 
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
 .nav__menu {
+  display: flex;
+  flex-direction: row;
   list-style: none;
   padding: 0;
 }
@@ -24,6 +31,13 @@
   flex-direction: row;
   align-items: center;
   gap: 0.2rem;
+
+  border-radius: 24px;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(81, 81, 81, 0.2));
+
+  padding: 0.5rem 1rem 0.5rem 3rem;
+  margin-left: -40px;
+  z-index: 0;
 }
 
 .nav__menu_item > svg {
@@ -33,12 +47,14 @@
 .nav__menu_item.active {
   color: white;
 
+  padding: 0.5rem 1rem;
+  margin-left: 0px;
+  z-index: 1;
+
   border: 0.5px solid transparent;
   background:
     linear-gradient(rgb(81, 81, 81), rgb(0, 0, 0)) padding-box,
     linear-gradient(rgb(159, 159, 159), rgb(42, 42, 42)) border-box;
-  padding: 0.5rem 1rem;
-  border-radius: 24px;
 
   text-shadow: 0px 1px black;
 }
