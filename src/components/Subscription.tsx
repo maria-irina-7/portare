@@ -45,7 +45,7 @@ const Subscription = ({ subscription }: SubscriptionProp) => {
     <ul className="subscription">
       <img
         className="subscription__logo"
-        src={`./public/portare/assets/companies/${subscription.provider}.png`}
+        src={`/assets/companies/${subscription.provider}.png`}
         alt={`${subscription.provider}`}
       ></img>
 
