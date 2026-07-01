@@ -11,7 +11,8 @@
     "scrape": "node scraper/scrape.js",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate-types": "wrangler types"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.1.0",

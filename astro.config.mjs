@@ -5,9 +5,14 @@ import react from "@astrojs/react";
 
 import mdx from "@astrojs/mdx";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), mdx()],
-  site: "https://maria-irina-7.github.io",
+
   // base: "/portare",
+  site: "https://maria-irina-7.github.io",
+
+  adapter: cloudflare(),
 });
