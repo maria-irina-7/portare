@@ -12,7 +12,7 @@ export default defineConfig({
   integrations: [react(), mdx()],
 
   // base: "/portare",
-  site: "https://maria-irina-7.github.io",
+  // site: "https://maria-irina-7.github.io",
 
   adapter: cloudflare(),
 });
