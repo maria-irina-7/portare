@@ -1,5 +1,5 @@
 import type React from "react";
-import "../styles/Grid.css";
+import "../styles/components/Grid.css";
 
 interface SubscriptionsGridProp {
   children: React.ReactNode;

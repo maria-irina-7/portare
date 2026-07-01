@@ -1,6 +1,6 @@
 import { type ReactNode } from "react";
 
-import "../styles/Sidebar.css";
+import "../styles/components/Sidebar.css";
 
 interface SidebarProps {
   children?: ReactNode;

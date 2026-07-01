@@ -1,6 +1,6 @@
 import { type ReactNode } from "react";
 
-import "../styles/Banner.css";
+import "../styles/components/Banner.css";
 
 interface BannerProps {
   children?: ReactNode;

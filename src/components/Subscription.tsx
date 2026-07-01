@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Subscription.css";
+import "../styles/components/Subscription.css";
 import type { JSONType } from "astro/zod";
 
 interface SubscriptionData {
